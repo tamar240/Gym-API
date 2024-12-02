@@ -1,9 +1,9 @@
-using GymAPI.Controllers;
-using GymAPI.Entities;
-using GymAPI.Services;
+using Gym.API.Controllers;
+using Gym.Data;
+
 using Microsoft.AspNetCore.Mvc;
 
-namespace TestProject
+namespace UnitTest
 {
     public class EventsControllerTest
     {
@@ -18,7 +18,7 @@ namespace TestProject
         {
             var id = "1";
 
-            var result= _trainerContorller.Get(id);
+            var result = _trainerContorller.Get(id);
 
             Assert.IsType<OkObjectResult>(result);
 
@@ -36,7 +36,7 @@ namespace TestProject
         [Fact]
         public void GetAll_ReturnsOk()
         {
-            
+
             var result = _trainerContorller.Get();
 
             Assert.IsType<OkObjectResult>(result);

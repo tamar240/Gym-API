@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GymAPI\GymAPI.csproj" />
+    <ProjectReference Include="..\GymAPI\Gym.API.csproj" />
   </ItemGroup>
 
   <ItemGroup>
