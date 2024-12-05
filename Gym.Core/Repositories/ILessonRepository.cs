@@ -14,7 +14,7 @@ namespace Gym.Core.Repositories
         public List<Lesson> GetByDayAndType(EnumDayOfWeek day, EnumTypesOfFitness typesOfFitness);
         public void Update(int code,EnumTypesOfFitness type, string trainerId, EnumGender targetAudience, EnumDayOfWeek day, TimeSpan start, int during, EnumLevel level);
         public void AddLesson(EnumTypesOfFitness type, string trainerId, EnumGender targetAudience, EnumDayOfWeek day, TimeSpan start, int during, EnumLevel level);
-        public void DeleteLesson(int code);
+        public void DeleteLesson(int id);
         
 
     }

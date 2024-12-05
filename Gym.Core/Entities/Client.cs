@@ -1,13 +1,15 @@
 ﻿using System.Collections;
+using System.ComponentModel.DataAnnotations;
 
 namespace Gym.Core.Entities
 {
     public enum EnumHealthFund { Clalit, Maccabi, Meuhedet, Leumit }
     public class Client
     {
-        private static int count = 0;
-        public int Code { get; }
-        public string Id { get; }
+        //private static int count = 0;
+        [Key]
+        public int ID { get; set; }
+        public string Tz { get; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public EnumGender Gender { get; set; }
@@ -16,11 +18,12 @@ namespace Gym.Core.Entities
         public EnumHealthFund HealthFund { get; set; }
         public bool IsActiveClient { get; set; }
         public List<Lesson> ClientLessons { get; set; }
-
+        public Client()
+        { }
         public Client(string id, string firstName, string lastName, EnumGender gender, string phon, string mail, EnumHealthFund healthFund)
         {
-            Code = ++count;
-            Id = id;
+            //ID = ++count;
+            Tz = id;
             FirstName = firstName;
             LastName = lastName;
             Gender = gender;

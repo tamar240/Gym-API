@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices.Marshalling;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices.Marshalling;
 using System.Text.Json;
 
 namespace Gym.Core.Entities
@@ -7,9 +8,10 @@ namespace Gym.Core.Entities
     public class Lesson
     {
         private static int count = 0;
-        public int Code { get; }
+        [Key]
+        public int ID { get; set; }
         public EnumTypesOfFitness Type { get; set; }
-        public string TrainerId { get; set; }
+        public string TrainerID { get; set; }
         public EnumGender TargetAudience { get; set; }
         public EnumDayOfWeek Day { get; set; }
         public TimeSpan Start { get; set; }
@@ -23,9 +25,9 @@ namespace Gym.Core.Entities
         }
         public Lesson(EnumTypesOfFitness type, string trainerId, EnumGender targetAudience, EnumDayOfWeek day, TimeSpan start, int during, EnumLevel level)
         {
-            Code = ++count;
+            ID = ++count;
             Type = type;
-            TrainerId = trainerId;
+            TrainerID = trainerId;
             TargetAudience = targetAudience;
             Day = day;
             Start = start;

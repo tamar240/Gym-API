@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.ComponentModel.DataAnnotations;
 
 namespace Gym.Core.Entities
 {
@@ -8,8 +9,9 @@ namespace Gym.Core.Entities
     public class Trainer
     {
         private static int count = 0;
-        public int Code { get; }
-        public string Id { get; }
+        [Key]
+        public int ID { get; set; }
+        public string Tz { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public EnumGender Gender { get; set; }
@@ -19,11 +21,11 @@ namespace Gym.Core.Entities
         public bool IsActiveTrainer { get; set; }
         public List<Lesson> TrainerLessons { get; set; }
 
-
+        public Trainer() { }
         public Trainer(string id, string firstName, string lastName, EnumGender gender, string phon, string mail,/*List <*/EnumTypesOfFitness/*>*/ typesOfFitness)
         {
-            Code = ++count;
-            Id = id;
+            ID = ++count;
+            Tz = id;
             FirstName = firstName;
             LastName = lastName;
             Gender = gender;

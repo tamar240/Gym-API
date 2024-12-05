@@ -17,7 +17,7 @@ namespace Gym.Data.Repositories
         }
         public List<Lesson> GetAllLesson()
         {
-            return _context.LessonList;
+            return _context.LessonList.ToList();
         }
         public List<Lesson> GetByDay(EnumDayOfWeek day)
         {
@@ -35,13 +35,13 @@ namespace Gym.Data.Repositories
         }
 
        
-        public void  Update(int code, EnumTypesOfFitness type, string trainerId, EnumGender targetAudience, EnumDayOfWeek day, TimeSpan start, int during, EnumLevel level)
+        public void  Update(int id, EnumTypesOfFitness type, string trainerId, EnumGender targetAudience, EnumDayOfWeek day, TimeSpan start, int during, EnumLevel level)
         {
-            Lesson lesson = _context.LessonList.SingleOrDefault(l => l.Code == code);
+            Lesson lesson = _context.LessonList.SingleOrDefault(l => l.ID == id);
             if (lesson != null)
             {
                 lesson.Type = type;
-                lesson.TrainerId = trainerId;
+                lesson.TrainerID = trainerId;
                 lesson.TargetAudience = targetAudience;
                 lesson.Day = day;
                 lesson.Start = start;
@@ -52,9 +52,9 @@ namespace Gym.Data.Repositories
             //    NotFound("this lesson isnt exist");
         }
 
-        public void DeleteLesson(int code)
+        public void DeleteLesson(int id)
         {
-            _context.LessonList.Remove(_context.LessonList.SingleOrDefault(l => l.Code == code));
+            _context.LessonList.Remove(_context.LessonList.SingleOrDefault(l => l.ID == id));
         }
 
 

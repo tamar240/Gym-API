@@ -1,5 +1,6 @@
 ﻿using Gym.Core.Entities;
 using Gym.Core.Repositories;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace Gym.Data.Repositories
 {
-    
-    public class ClientRepository:IClientRepository
+
+    public class ClientRepository :  IClientRepository
     {
         private readonly DataContext _context;
         public ClientRepository(DataContext context)
@@ -18,13 +19,13 @@ namespace Gym.Data.Repositories
         }
         public List<Client> GetAllClients()
         {
-            return _context.ClientList;
+            return _context.ClientList.ToList();
         }
         public Client GetSingle(string id)
         {
             foreach (var client in _context.ClientList)
             {
-                if (client.Id == id)
+                if (client.Tz == id)
                     return client;
             }
             throw new KeyNotFoundException($"client with id {id} was not found.");
@@ -36,9 +37,9 @@ namespace Gym.Data.Repositories
             _context.ClientList.Add(new Client(id, firstName, lastName, gender, phon, mail, healthFund));
         }
 
-        public void UpdateClient(string id, string firstName, string lastName, string phon, string mail, EnumHealthFund healthFund)
+        public void UpdateClient(string tz, string firstName, string lastName, string phon, string mail, EnumHealthFund healthFund)
         {
-            Client client = _context.ClientList.SingleOrDefault(c => c.Id == id);
+            Client client = _context.ClientList.SingleOrDefault(c => c.Tz == tz);
             if (client != null)
             {
                 client.FirstName = firstName;
@@ -53,9 +54,9 @@ namespace Gym.Data.Repositories
         }
 
 
-        public void Delete(string id)
+        public void Delete(string tz)
         {
-            _context.ClientList.Remove(_context.ClientList.SingleOrDefault(c => c.Id == id));
+            _context.ClientList.Remove(_context.ClientList.SingleOrDefault(c => c.Tz == tz));
         }
     }
 }

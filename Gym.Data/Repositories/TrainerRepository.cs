@@ -19,12 +19,12 @@ namespace Gym.Data.Repositories
 
         public List<Trainer> GetAllTrainers()
         {
-            return _context.TrainerList;
+            return _context.TrainerList.ToList();
         }
        
-        public Trainer GetById(string id)
+        public Trainer GetById(string tz)
         {
-            return _context.TrainerList.Where(t => t.Id == id).First();
+            return _context.TrainerList.Where(t => t.Tz == tz).First();
         }
 
         public void AddTrainer(string id, string FirstName, string LastName, EnumGender Gender, string Phon, string Mail, EnumTypesOfFitness TypeOfFitness)
@@ -32,9 +32,9 @@ namespace Gym.Data.Repositories
             _context.TrainerList.Add(new Trainer(id, FirstName, LastName, Gender, Phon, Mail, TypeOfFitness));
         }
 
-        public void UpdateTainer(string id, string FirstName, string LastName, string Phon, string Mail, EnumTypesOfFitness TypeOfFitness)
+        public void UpdateTainer(string tz, string FirstName, string LastName, string Phon, string Mail, EnumTypesOfFitness TypeOfFitness)
         {
-            Trainer trainer = _context.TrainerList.SingleOrDefault(t => t.Id == id);
+            Trainer trainer = _context.TrainerList.SingleOrDefault(t => t.Tz == tz);
             if (trainer != null)
             {
                 trainer.FirstName = FirstName;
@@ -46,16 +46,16 @@ namespace Gym.Data.Repositories
             //else
             //    NotFound("this trainer isnt exist");
         }
-        public void UpdateActive(string id, bool isActiveTrainer)
+        public void UpdateActive(string tz, bool isActiveTrainer)
         {
-            Trainer trainer = _context.TrainerList.SingleOrDefault(t => t.Id == id);
+            Trainer trainer = _context.TrainerList.SingleOrDefault(t => t.Tz == tz);
             if ( trainer != null ) 
                 trainer.IsActiveTrainer = isActiveTrainer;
         }
      
-        public void DeleteTrainer(string id)
+        public void DeleteTrainer(string tz)
         {
-            _context.TrainerList.Remove(_context.TrainerList.SingleOrDefault(trainer => trainer.Id == id));
+            _context.TrainerList.Remove(_context.TrainerList.SingleOrDefault(trainer => trainer.Tz == tz));
         }
     }
 }
