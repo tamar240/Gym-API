@@ -8,7 +8,6 @@ namespace Gym.Core.Entities
     public enum EnumLevel { Beginner, advanced }
     public class Trainer
     {
-        private static int count = 0;
         [Key]
         public int ID { get; set; }
         public string Tz { get; set; }
@@ -24,7 +23,6 @@ namespace Gym.Core.Entities
         public Trainer() { }
         public Trainer(string id, string firstName, string lastName, EnumGender gender, string phon, string mail,/*List <*/EnumTypesOfFitness/*>*/ typesOfFitness)
         {
-            ID = ++count;
             Tz = id;
             FirstName = firstName;
             LastName = lastName;

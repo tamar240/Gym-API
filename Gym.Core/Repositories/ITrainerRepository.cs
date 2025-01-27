@@ -10,13 +10,14 @@ namespace Gym.Core.Repositories
      public interface ITrainerRepository
     {
         public List<Trainer> GetAllTrainers();
-        public Trainer GetById(string id);
+        public Trainer GetByTz(string tz);
+        public Trainer GetById(int id);
 
-        public void AddTrainer(string id, string FirstName, string LastName, EnumGender Gender, string Phon, string Mail, EnumTypesOfFitness TypeOfFitness);
-        public void UpdateTainer(string id, string FirstName, string LastName, string Phon, string Mail, EnumTypesOfFitness TypeOfFitness);
+        public void AddTrainer(Trainer trainer);
+        public void UpdateTainer(int id, Trainer trainer);
 
-        public void UpdateActive(string id, bool isActiveTrainer);
+        public void UpdateActive(int id, bool isActiveTrainer);
 
-        public void DeleteTrainer(string id);
+        public void DeleteTrainer(int id);
     }
 }

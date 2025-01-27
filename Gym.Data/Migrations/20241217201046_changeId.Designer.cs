@@ -4,6 +4,7 @@ using Gym.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gym.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20241217201046_changeId")]
+    partial class changeId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,21 +24,6 @@ namespace Gym.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("ClientLesson", b =>
-                {
-                    b.Property<int>("ClientLessonsID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("clientsID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ClientLessonsID", "clientsID");
-
-                    b.HasIndex("clientsID");
-
-                    b.ToTable("ClientLesson");
-                });
 
             modelBuilder.Entity("Gym.Core.Entities.Client", b =>
                 {
@@ -70,10 +58,6 @@ namespace Gym.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Tz")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("ID");
 
                     b.ToTable("ClientList");
@@ -86,6 +70,9 @@ namespace Gym.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int?>("ClientID")
+                        .HasColumnType("int");
 
                     b.Property<int>("Day")
                         .HasColumnType("int");
@@ -112,6 +99,8 @@ namespace Gym.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("ClientID");
 
                     b.HasIndex("TrainerID");
 
@@ -160,28 +149,22 @@ namespace Gym.Data.Migrations
                     b.ToTable("TrainerList");
                 });
 
-            modelBuilder.Entity("ClientLesson", b =>
-                {
-                    b.HasOne("Gym.Core.Entities.Lesson", null)
-                        .WithMany()
-                        .HasForeignKey("ClientLessonsID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Gym.Core.Entities.Client", null)
-                        .WithMany()
-                        .HasForeignKey("clientsID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Gym.Core.Entities.Lesson", b =>
                 {
+                    b.HasOne("Gym.Core.Entities.Client", null)
+                        .WithMany("ClientLessons")
+                        .HasForeignKey("ClientID");
+
                     b.HasOne("Gym.Core.Entities.Trainer", null)
                         .WithMany("TrainerLessons")
                         .HasForeignKey("TrainerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Gym.Core.Entities.Client", b =>
+                {
+                    b.Navigation("ClientLessons");
                 });
 
             modelBuilder.Entity("Gym.Core.Entities.Trainer", b =>

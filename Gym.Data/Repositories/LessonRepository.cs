@@ -1,10 +1,13 @@
 ﻿using Gym.Core.Entities;
 using Gym.Core.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Gym.Data.Repositories
 {
@@ -21,40 +24,41 @@ namespace Gym.Data.Repositories
         }
         public List<Lesson> GetByDay(EnumDayOfWeek day)
         {
-            return _context.LessonList.Where(l => l.Day == day).ToList();
+            return _context.LessonList.Where(l => l.Day == day).Include(l=>l.clients).ToList();
         }
         public List<Lesson> GetByDayAndType(EnumDayOfWeek day, EnumTypesOfFitness typesOfFitness)
         {
-            return _context.LessonList.Where(l => l.Day == day && l.Type == typesOfFitness).ToList();
+            return _context.LessonList.Where(l => l.Day == day && l.Type == typesOfFitness).Include(l => l.clients).ToList();
         }
 
-        public void AddLesson(EnumTypesOfFitness type, string trainerId, EnumGender targetAudience, EnumDayOfWeek day, TimeSpan start, int during, EnumLevel level)
+        public void AddLesson(Lesson lesson)
         {
 
-            _context.LessonList.Add(new Lesson(type, trainerId, targetAudience, day, start, during, level));
+            _context.LessonList.Add( lesson);
         }
 
-       
-        public void  Update(int id, EnumTypesOfFitness type, string trainerId, EnumGender targetAudience, EnumDayOfWeek day, TimeSpan start, int during, EnumLevel level)
+
+        public void Update(int id, Lesson lesson)
         {
-            Lesson lesson = _context.LessonList.SingleOrDefault(l => l.ID == id);
-            if (lesson != null)
+            Lesson thisLesson = _context.LessonList.SingleOrDefault(l => l.ID == id);
+            if (thisLesson != null)
             {
-                lesson.Type = type;
-                lesson.TrainerID = trainerId;
-                lesson.TargetAudience = targetAudience;
-                lesson.Day = day;
-                lesson.Start = start;
-                lesson.During = during;
-                lesson.Level = level;
+                thisLesson.Type = lesson.Type;
+                thisLesson.TrainerID = lesson.TrainerID;
+                thisLesson.TargetAudience = lesson.TargetAudience;
+                thisLesson.Day = lesson.Day;
+                thisLesson.Start = lesson.Start;
+                thisLesson.End = lesson.Start.Add(TimeSpan.FromMinutes(lesson.During));
+                thisLesson.During = lesson.During;
+                thisLesson.Level = lesson.Level;
             }
-            //else
-            //    NotFound("this lesson isnt exist");
         }
 
         public void DeleteLesson(int id)
         {
-            _context.LessonList.Remove(_context.LessonList.SingleOrDefault(l => l.ID == id));
+            var lesson = _context.LessonList.SingleOrDefault(l => l.ID == id);
+            if (lesson != null)
+              _context.LessonList.Remove(lesson);
         }
 
 

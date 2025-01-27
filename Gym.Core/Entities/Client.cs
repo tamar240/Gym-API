@@ -6,10 +6,9 @@ namespace Gym.Core.Entities
     public enum EnumHealthFund { Clalit, Maccabi, Meuhedet, Leumit }
     public class Client
     {
-        //private static int count = 0;
         [Key]
         public int ID { get; set; }
-        public string Tz { get; }
+        public string Tz { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public EnumGender Gender { get; set; }
@@ -20,10 +19,9 @@ namespace Gym.Core.Entities
         public List<Lesson> ClientLessons { get; set; }
         public Client()
         { }
-        public Client(string id, string firstName, string lastName, EnumGender gender, string phon, string mail, EnumHealthFund healthFund)
+        public Client(string tz, string firstName, string lastName, EnumGender gender, string phon, string mail, EnumHealthFund healthFund)
         {
-            //ID = ++count;
-            Tz = id;
+            Tz = tz;
             FirstName = firstName;
             LastName = lastName;
             Gender = gender;
@@ -31,6 +29,7 @@ namespace Gym.Core.Entities
             Mail = mail;
             HealthFund = healthFund;
             IsActiveClient = true;
+            ClientLessons = new List<Lesson>();
         }
     }
 }

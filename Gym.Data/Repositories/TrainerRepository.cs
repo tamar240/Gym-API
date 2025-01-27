@@ -1,6 +1,7 @@
 ﻿using Gym.Core.Entities;
 using Gym.Core.Interface;
 using Gym.Core.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,43 +20,49 @@ namespace Gym.Data.Repositories
 
         public List<Trainer> GetAllTrainers()
         {
-            return _context.TrainerList.ToList();
+            return _context.TrainerList.Include(t => t.TrainerLessons).ToList();
         }
        
-        public Trainer GetById(string tz)
+        public Trainer GetByTz(string tz)
         {
-            return _context.TrainerList.Where(t => t.Tz == tz).First();
+            return _context.TrainerList.Where(t => t.Tz == tz).Include(t => t.TrainerLessons).FirstOrDefault();
+        }
+        public Trainer GetById(int id)
+        {
+            return _context.TrainerList.Where(t => t.ID == id).Include(t => t.TrainerLessons).FirstOrDefault();
         }
 
-        public void AddTrainer(string id, string FirstName, string LastName, EnumGender Gender, string Phon, string Mail, EnumTypesOfFitness TypeOfFitness)
+        public void AddTrainer(Trainer trainer)
         {
-            _context.TrainerList.Add(new Trainer(id, FirstName, LastName, Gender, Phon, Mail, TypeOfFitness));
+            _context.TrainerList.Add(trainer);
         }
 
-        public void UpdateTainer(string tz, string FirstName, string LastName, string Phon, string Mail, EnumTypesOfFitness TypeOfFitness)
+        public void UpdateTainer(int id,Trainer trainer)
         {
-            Trainer trainer = _context.TrainerList.SingleOrDefault(t => t.Tz == tz);
+            Trainer thisTrainer = _context.TrainerList.SingleOrDefault(t => t.ID == id);
             if (trainer != null)
             {
-                trainer.FirstName = FirstName;
-                trainer.LastName = LastName;
-                trainer.Phon = Phon;
-                trainer.Mail = Mail;
-                trainer.TypeOfFitness = TypeOfFitness;
+                thisTrainer.FirstName = trainer.FirstName;
+                thisTrainer.LastName = trainer.LastName;
+                thisTrainer.Phon = trainer.Phon;
+                thisTrainer.Mail = trainer.Mail;
+                thisTrainer.TypeOfFitness = trainer.TypeOfFitness;
             }
             //else
             //    NotFound("this trainer isnt exist");
         }
-        public void UpdateActive(string tz, bool isActiveTrainer)
+        public void UpdateActive(int id, bool isActiveTrainer)
         {
-            Trainer trainer = _context.TrainerList.SingleOrDefault(t => t.Tz == tz);
+            Trainer trainer = _context.TrainerList.SingleOrDefault(t => t.ID == id);
             if ( trainer != null ) 
                 trainer.IsActiveTrainer = isActiveTrainer;
         }
      
-        public void DeleteTrainer(string tz)
+        public void DeleteTrainer(int id)
         {
-            _context.TrainerList.Remove(_context.TrainerList.SingleOrDefault(trainer => trainer.Tz == tz));
+            var trainer = _context.TrainerList.SingleOrDefault(trainer => trainer.ID == id);
+            if (trainer != null)
+               _context.TrainerList.Remove(trainer);
         }
     }
 }

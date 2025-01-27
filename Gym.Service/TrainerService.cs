@@ -13,38 +13,48 @@ namespace Gym.Service
     public class TrainerService:ITrainerService
     {
         private readonly ITrainerRepository _trainerRepository;
-        public TrainerService(ITrainerRepository trainerRepository)
+        private readonly IRepositoryManager _managerRepository;
+        public TrainerService(ITrainerRepository trainerRepository, IRepositoryManager managerRepository)
         {
             _trainerRepository = trainerRepository;
+            _managerRepository = managerRepository;
         }
 
         public List<Trainer> GetAllTrainers()
         {
             return _trainerRepository.GetAllTrainers();
+
         }
 
-        public Trainer GetById(string id)
+        public Trainer GetById(int id)
         {
             return _trainerRepository.GetById(id);
         }
-
-        public void AddTrainer(string id, string FirstName, string LastName, EnumGender Gender, string Phon, string Mail, EnumTypesOfFitness TypeOfFitness)
+        public Trainer GetByTz(string tz)
         {
-            _trainerRepository.AddTrainer(id, FirstName, LastName, Gender, Phon, Mail, TypeOfFitness);
+            return _trainerRepository.GetByTz(tz);
+        }
+        public void AddTrainer(Trainer trainer)
+        {
+            _trainerRepository.AddTrainer(trainer);
+            _managerRepository.Save();
         }
 
-        public void UpdateTainer(string id, string FirstName, string LastName, string Phon, string Mail, EnumTypesOfFitness TypeOfFitness)
+        public void UpdateTainer(int id,Trainer trainer)
         {
-            _trainerRepository.UpdateTainer(id, FirstName, LastName, Phon, Mail, TypeOfFitness);
+            _trainerRepository.UpdateTainer(id,trainer);
+            _managerRepository.Save();
         }
-        public void UpdateActive(string id, bool isActiveTrainer)
+        public void UpdateActive(int id, bool isActiveTrainer)
         {
             _trainerRepository.UpdateActive(id, isActiveTrainer);
+            _managerRepository.Save();
         }
 
-        public void DeleteTrainer(string id)
+        public void DeleteTrainer(int id)
         {
             _trainerRepository.DeleteTrainer(id);
+            _managerRepository.Save();
         }
     }
 }

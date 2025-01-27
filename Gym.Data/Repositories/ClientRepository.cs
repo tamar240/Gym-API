@@ -1,6 +1,6 @@
 ﻿using Gym.Core.Entities;
 using Gym.Core.Repositories;
-
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,44 +19,59 @@ namespace Gym.Data.Repositories
         }
         public List<Client> GetAllClients()
         {
-            return _context.ClientList.ToList();
+            return _context.ClientList.Include(c=>c.ClientLessons).ToList();
         }
-        public Client GetSingle(string id)
+        public Client GetSingleByTz(string tz)
         {
             foreach (var client in _context.ClientList)
             {
-                if (client.Tz == id)
+                if (client.Tz == tz)
+                    return client;
+            }
+            throw new KeyNotFoundException($"client with id {tz} was not found.");
+        }
+        public Client GetSingleById(int id)
+        {
+            foreach (var client in _context.ClientList)
+            {
+                if (client.ID == id)
                     return client;
             }
             throw new KeyNotFoundException($"client with id {id} was not found.");
         }
 
 
-        public void AddClient(string id, string firstName, string lastName, EnumGender gender, string phon, string mail, EnumHealthFund healthFund)
+        public void AddClient(Client client)
         {
-            _context.ClientList.Add(new Client(id, firstName, lastName, gender, phon, mail, healthFund));
+            _context.ClientList.Add(client);
         }
 
-        public void UpdateClient(string tz, string firstName, string lastName, string phon, string mail, EnumHealthFund healthFund)
+        //public void AddLessonToClient(int idClient,int idLesson)
+        //    var client = _context.ClientList.Include(c => c.ClientLessons).FirstOrDefault(c => c.ID == clientId);
+        //    _context.ClientList(new Client(tz, firstName, lastName, gender, phon, mail, healthFund));
+        //}
+        //
+        public void UpdateClient(int id,Client client)
         {
-            Client client = _context.ClientList.SingleOrDefault(c => c.Tz == tz);
+            Client thisClient = _context.ClientList.SingleOrDefault(c => c.ID == id);
             if (client != null)
             {
-                client.FirstName = firstName;
-                client.LastName = lastName;
-                client.Phon = phon;
-                client.Mail = mail;
-                client.HealthFund = healthFund;
+                thisClient.FirstName = client.FirstName;
+                thisClient.LastName = client.LastName;
+                thisClient.Phon = client.Phon;
+                thisClient.Mail = client.Mail;
+                thisClient.HealthFund = client.HealthFund;
             }
             else
                 throw new KeyNotFoundException($"this client is not exists");
 
         }
 
-
-        public void Delete(string tz)
+        public void Delete(int id)
         {
-            _context.ClientList.Remove(_context.ClientList.SingleOrDefault(c => c.Tz == tz));
+            var client = _context.ClientList.SingleOrDefault(c => c.ID == id);
+            if(client!=null)
+               _context.ClientList.Remove(client);
         }
     }
 }

@@ -8,9 +8,11 @@ namespace Gym.Service
     public class LessonService:ILessonService
     {
         private readonly ILessonRepository _lessonRepository;
-        public LessonService(ILessonRepository lessonRepository)
+        private readonly IRepositoryManager _managerRepository;
+        public LessonService(ILessonRepository lessonRepository, IRepositoryManager managerRepository)
         {
             _lessonRepository = lessonRepository;
+            _managerRepository = managerRepository;
         }
         public List<Lesson> GetAllLesson()
         {
@@ -25,21 +27,24 @@ namespace Gym.Service
             return _lessonRepository.GetByDayAndType(day, typesOfFitness);
         }
 
-        public void Update(int code, EnumTypesOfFitness type, string trainerId, EnumGender targetAudience, EnumDayOfWeek day, TimeSpan start, int during, EnumLevel level)
+        public void Update(int code,Lesson lesson)
         {
 
-            _lessonRepository.Update(code,type, trainerId, targetAudience, day, start, during, level);
+            _lessonRepository.Update(code,lesson);
+            _managerRepository.Save();
         }
 
 
-        public void AddLesson( EnumTypesOfFitness type, string trainerId, EnumGender targetAudience, EnumDayOfWeek day, TimeSpan start, int during, EnumLevel level)
+        public void AddLesson( Lesson lesson)
         {
-            _lessonRepository.AddLesson( type, trainerId, targetAudience, day, start, during, level);
+            _lessonRepository.AddLesson( lesson);
+            _managerRepository.Save();
         }
 
         public void DeleteLesson(int code)
         {
             _lessonRepository.DeleteLesson(code);
+            _managerRepository.Save();
         }
         
 

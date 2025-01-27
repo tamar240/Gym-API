@@ -17,9 +17,9 @@ namespace Gym.Data
             };
             LessonList = new List<Lesson>()
             {
-               new Lesson(EnumTypesOfFitness.Pilates,"1", EnumGender.female,EnumDayOfWeek.Monday,new TimeSpan(20,30,0),45,EnumLevel.Beginner),
-               new Lesson(EnumTypesOfFitness.Dence,"2", EnumGender.female,EnumDayOfWeek.Monday,new TimeSpan(10,30,0),45,EnumLevel.Beginner),
-               new Lesson(EnumTypesOfFitness.HIIT,"3", EnumGender.male,EnumDayOfWeek.Sunday,new TimeSpan(12,30,0),45,EnumLevel.Beginner)
+               //new Lesson(EnumTypesOfFitness.Pilates,1, EnumGender.female,EnumDayOfWeek.Monday,new TimeSpan(20,30,0),45,EnumLevel.Beginner),
+               //new Lesson(EnumTypesOfFitness.Dence,2, EnumGender.female,EnumDayOfWeek.Monday,new TimeSpan(10,30,0),45,EnumLevel.Beginner),
+               //new Lesson(EnumTypesOfFitness.HIIT,3, EnumGender.male,EnumDayOfWeek.Sunday,new TimeSpan(12,30,0),45,EnumLevel.Beginner)
             };
             ClientList = new List<Client>(){
               new Client("1111","meira","vurzel",EnumGender.female,"200000","khjkhkj",EnumHealthFund. Leumit),

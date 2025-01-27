@@ -10,11 +10,11 @@ namespace Gym.Core.Services
     public interface IClientService
     {
         public List<Client> GetAll();
-        public Client GetSingle(string id);
-        public void AddClient(string id, string firstName, string lastName, EnumGender gender, string phon, string mail, EnumHealthFund healthFund);
-        public void UpdateClient(string id, string firstName, string lastName, string phon, string mail, EnumHealthFund healthFund);
-        public void Delete(string id);
-
+        public Client GetSingleByTz(string tz);
+        public Client GetSingleById(int id);
+        public void AddClient(Client client);
+        public void UpdateClient(int id,Client client);
+        public void Delete(int id);
     }
 
 
