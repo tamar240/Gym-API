@@ -9,12 +9,12 @@ namespace Gym.Core.Services
 {
     public interface IClientService
     {
-        public List<Client> GetAll();
-        public Client GetSingleByTz(string tz);
-        public Client GetSingleById(int id);
-        public void AddClient(Client client);
-        public void UpdateClient(int id,Client client);
-        public void Delete(int id);
+        Task< List<Client> >GetAll();
+        Task< Client> GetSingleByTz(string tz);
+        Task<Client >GetSingleById(int id);
+        Task AddClient(Client client);
+        Task UpdateClient(int id,Client client);
+        Task Delete(int id);
     }
 
 

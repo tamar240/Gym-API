@@ -10,40 +10,41 @@ using System.Threading.Tasks;
 namespace Gym.Data.Repositories
 {
 
-    public class ClientRepository :  IClientRepository
+    public class ClientRepository : IClientRepository
     {
         private readonly DataContext _context;
         public ClientRepository(DataContext context)
         {
             _context = context;
         }
-        public List<Client> GetAllClients()
+        public async Task<List<Client>> GetAllClientsAsync()
         {
-            return _context.ClientList.Include(c=>c.ClientLessons).ToList();
+            return await _context.ClientList.Include(c => c.ClientLessons).ToListAsync();
         }
-        public Client GetSingleByTz(string tz)
+        public async Task<Client> GetSingleByTzAsync(string tz)
         {
-            foreach (var client in _context.ClientList)
-            {
-                if (client.Tz == tz)
-                    return client;
-            }
-            throw new KeyNotFoundException($"client with id {tz} was not found.");
+            var client = await _context.ClientList.FirstOrDefaultAsync(c => c.Tz == tz);
+
+            if (client == null)
+                throw new KeyNotFoundException($"Client with tz {tz} was not found.");
+
+            return client;
         }
-        public Client GetSingleById(int id)
+
+        public async Task<Client> GetSingleByIdAsync(int id)
         {
-            foreach (var client in _context.ClientList)
-            {
-                if (client.ID == id)
-                    return client;
-            }
-            throw new KeyNotFoundException($"client with id {id} was not found.");
+            var client = await _context.ClientList.FirstOrDefaultAsync(c => c.ID == id);
+
+            if (client == null)
+            throw new KeyNotFoundException($"Client with id {id} was not found.");
+
+            return client;
         }
 
 
-        public void AddClient(Client client)
+        public async Task AddClientAsync(Client client)
         {
-            _context.ClientList.Add(client);
+            await _context.ClientList.AddAsync(client);
         }
 
         //public void AddLessonToClient(int idClient,int idLesson)
@@ -51,9 +52,9 @@ namespace Gym.Data.Repositories
         //    _context.ClientList(new Client(tz, firstName, lastName, gender, phon, mail, healthFund));
         //}
         //
-        public void UpdateClient(int id,Client client)
+        public async Task UpdateClientAsync(int id,Client client)
         {
-            Client thisClient = _context.ClientList.SingleOrDefault(c => c.ID == id);
+            var thisClient =await _context.ClientList.SingleOrDefaultAsync(c => c.ID == id);
             if (client != null)
             {
                 thisClient.FirstName = client.FirstName;
@@ -67,11 +68,13 @@ namespace Gym.Data.Repositories
 
         }
 
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            var client = _context.ClientList.SingleOrDefault(c => c.ID == id);
+            var client =await _context.ClientList.SingleOrDefaultAsync(c => c.ID == id);
             if(client!=null)
                _context.ClientList.Remove(client);
         }
+
+
     }
 }

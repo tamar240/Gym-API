@@ -9,11 +9,11 @@ namespace Gym.Core.Repositories
 {
     public interface IClientRepository
     {
-        public List<Client> GetAllClients();
-        public Client GetSingleByTz(string tz);
-        public Client GetSingleById(int id);
-        public void AddClient(Client client);
-        public void UpdateClient(int id,Client client);
-        public void Delete(int id);
+         Task<List<Client>> GetAllClientsAsync();
+         Task<Client> GetSingleByTzAsync(string tz);
+         Task<Client> GetSingleByIdAsync(int id);
+         Task AddClientAsync(Client client);
+         Task UpdateClientAsync(int id,Client client);
+         Task DeleteAsync(int id);
     }
 }

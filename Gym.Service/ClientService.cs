@@ -18,39 +18,39 @@ namespace Gym.Service
             _clientRepository = clientRepository;
             _managerRepository = managerRepository;
         }
-        public List<Client> GetAll()
+        public async  Task<List<Client>> GetAll()
         {
-            return _clientRepository.GetAllClients();
+            return  await _clientRepository.GetAllClientsAsync();
         }
        
-        public Client GetSingleByTz(string tz)
+        public async Task< Client> GetSingleByTz(string tz)
         {
-            return _clientRepository.GetSingleByTz(tz);
+            return  await _clientRepository.GetSingleByTzAsync(tz);
         }
 
-        public Client GetSingleById(int id)
+        public async Task<Client > GetSingleById(int id)
         {
-            return _clientRepository.GetSingleById(id);
+            return await _clientRepository.GetSingleByIdAsync(id);
         }
-        public void AddClient(Client client)
+        public async Task AddClient(Client client)
         {
-           _clientRepository.AddClient(client);
+           _clientRepository.AddClientAsync(client);
       
             _managerRepository.Save();
 
 
         }
 
-        public void UpdateClient(int id,Client client)
+        public async Task UpdateClient(int id,Client client)
         {
-            _clientRepository.UpdateClient(id,client);
+            _clientRepository.UpdateClientAsync(id,client);
             _managerRepository.Save();
         }
 
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _clientRepository.Delete(id);
+            _clientRepository.DeleteAsync(id);
             _managerRepository.Save();
         }
     }
