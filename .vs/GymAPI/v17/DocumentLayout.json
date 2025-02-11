@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\user1\\Documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\GymAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5B1E52A8-02F1-419B-B8AA-EBAEF343689F}|Gym.Core\\Gym.Core.csproj|c:\\users\\user1\\documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\gymapi\\gym.core\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B1E52A8-02F1-419B-B8AA-EBAEF343689F}|Gym.Core\\Gym.Core.csproj|solutionrelative:gym.core\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B1E52A8-02F1-419B-B8AA-EBAEF343689F}|Gym.Core\\Gym.Core.csproj|c:\\users\\user1\\documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\gymapi\\gym.core\\entitiesdto\\clientpostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B1E52A8-02F1-419B-B8AA-EBAEF343689F}|Gym.Core\\Gym.Core.csproj|solutionrelative:gym.core\\entitiesdto\\clientpostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{457E09C7-6A10-42CA-B967-D8F3AC1EE3E4}|GymAPI\\Gym.API.csproj|c:\\users\\user1\\documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\gymapi\\gymapi\\controllers\\clientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{457E09C7-6A10-42CA-B967-D8F3AC1EE3E4}|GymAPI\\Gym.API.csproj|solutionrelative:gymapi\\controllers\\clientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B1E52A8-02F1-419B-B8AA-EBAEF343689F}|Gym.Core\\Gym.Core.csproj|c:\\users\\user1\\documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\gymapi\\gym.core\\entitiesdto\\lessondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B1E52A8-02F1-419B-B8AA-EBAEF343689F}|Gym.Core\\Gym.Core.csproj|solutionrelative:gym.core\\entitiesdto\\lessondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{457E09C7-6A10-42CA-B967-D8F3AC1EE3E4}|GymAPI\\Gym.API.csproj|c:\\users\\user1\\documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\gymapi\\gymapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{457E09C7-6A10-42CA-B967-D8F3AC1EE3E4}|GymAPI\\Gym.API.csproj|solutionrelative:gymapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B1E52A8-02F1-419B-B8AA-EBAEF343689F}|Gym.Core\\Gym.Core.csproj|c:\\users\\user1\\documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\gymapi\\gym.core\\entities\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B1E52A8-02F1-419B-B8AA-EBAEF343689F}|Gym.Core\\Gym.Core.csproj|solutionrelative:gym.core\\entities\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5B1E52A8-02F1-419B-B8AA-EBAEF343689F}|Gym.Core\\Gym.Core.csproj|c:\\users\\user1\\documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\gymapi\\gym.core\\services\\iclientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,24 +50,89 @@
       "DocumentGroups": [
         {
           "DockedHeight": 581,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClientPostDTO.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\GymAPI\\Gym.Core\\EntitiesDTO\\ClientPostDTO.cs",
+              "RelativeDocumentMoniker": "Gym.Core\\EntitiesDTO\\ClientPostDTO.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\GymAPI\\Gym.Core\\EntitiesDTO\\ClientPostDTO.cs",
+              "RelativeToolTip": "Gym.Core\\EntitiesDTO\\ClientPostDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T18:15:53.15Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\GymAPI\\Gym.Core\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "Gym.Core\\MappingProfile.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\GymAPI\\Gym.Core\\MappingProfile.cs",
+              "RelativeToolTip": "Gym.Core\\MappingProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T18:15:31.23Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LessonDTO.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\GymAPI\\Gym.Core\\EntitiesDTO\\LessonDTO.cs",
+              "RelativeDocumentMoniker": "Gym.Core\\EntitiesDTO\\LessonDTO.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\GymAPI\\Gym.Core\\EntitiesDTO\\LessonDTO.cs",
+              "RelativeToolTip": "Gym.Core\\EntitiesDTO\\LessonDTO.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T18:15:39.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\GymAPI\\GymAPI\\Program.cs",
+              "RelativeDocumentMoniker": "GymAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\GymAPI\\GymAPI\\Program.cs",
+              "RelativeToolTip": "GymAPI\\Program.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACcAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T18:15:18.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\GymAPI\\Gym.Core\\Entities\\Client.cs",
+              "RelativeDocumentMoniker": "Gym.Core\\Entities\\Client.cs",
+              "ToolTip": "C:\\Users\\user1\\Documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\GymAPI\\Gym.Core\\Entities\\Client.cs",
+              "RelativeToolTip": "Gym.Core\\Entities\\Client.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T18:14:57.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ClientController.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\GymAPI\\GymAPI\\Controllers\\ClientController.cs",
               "RelativeDocumentMoniker": "GymAPI\\Controllers\\ClientController.cs",
               "ToolTip": "C:\\Users\\user1\\Documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\GymAPI\\GymAPI\\Controllers\\ClientController.cs",
               "RelativeToolTip": "GymAPI\\Controllers\\ClientController.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAiwGMAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAGMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-05T14:46:45.868Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "IClientService.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\GymAPI\\Gym.Core\\Services\\IClientService.cs",
               "RelativeDocumentMoniker": "Gym.Core\\Services\\IClientService.cs",
@@ -55,12 +140,11 @@
               "RelativeToolTip": "Gym.Core\\Services\\IClientService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T14:45:37.694Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T14:45:37.694Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "ClientService.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\GymAPI\\Gym.Service\\ClientService.cs",
               "RelativeDocumentMoniker": "Gym.Service\\ClientService.cs",
@@ -68,12 +152,11 @@
               "RelativeToolTip": "Gym.Service\\ClientService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T14:29:15.482Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T14:29:15.482Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "ClientRepository.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\GymAPI\\Gym.Data\\Repositories\\ClientRepository.cs",
               "RelativeDocumentMoniker": "Gym.Data\\Repositories\\ClientRepository.cs",
@@ -81,12 +164,11 @@
               "RelativeToolTip": "Gym.Data\\Repositories\\ClientRepository.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAADwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T13:35:05.307Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T13:35:05.307Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "IClientRepository.cs",
               "DocumentMoniker": "C:\\Users\\user1\\Documents\\\u05DE\u05E9\u05D9\u05DE\u05D5\u05EA\\second year\\net core\\GymAPI\\Gym.Core\\Repositories\\IClientRepository.cs",
               "RelativeDocumentMoniker": "Gym.Core\\Repositories\\IClientRepository.cs",
@@ -94,8 +176,7 @@
               "RelativeToolTip": "Gym.Core\\Repositories\\IClientRepository.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAADwvxMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T13:26:17.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T13:26:17.94Z"
             }
           ]
         },
